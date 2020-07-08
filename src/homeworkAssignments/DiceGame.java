@@ -10,6 +10,7 @@ INSTRUCTIONS:
 * If they get to exactly 20 at any point, they win
 * If they go over, or get to 5 rolls and are under 20, they lose.
  */
+
 public class DiceGame {
     public static void main(String[] args) {
         // setup known variables
@@ -34,10 +35,12 @@ public class DiceGame {
             }
             else if ( userPosition > gameBoardLength ) {
                 int spacesOver = userPosition - gameBoardLength;
-                System.out.println("Roll #"+ userRolls +": You've rolled a "+ die +". You lose! You went "+ spacesOver +" spaces too far. Better luck next time!");
+                System.out.println("Roll #"+ userRolls +": You've rolled a "+ die +". You lose! You went "+ spacesOver +" space(s) too far. Better luck next time!");
+                break;
             }
             else {
-                System.out.println("Roll #"+ userRolls +": You are now on space "+ userPosition +". Congrats! You win!");
+                System.out.println("Roll #"+ userRolls +": You've rolled a "+ die + ". You are now on space "+ userPosition +". Congrats! You win!");
+                break;
             }
 
             userRolls++;
@@ -45,8 +48,7 @@ public class DiceGame {
         while(userRolls <= maxRolls);
 
         if (userPosition < gameBoardLength) {
-            int spacesLeft = gameBoardLength - userPosition;
-            System.out.println("You're out of rolls! You missed by "+ spacesLeft +". Better luck next time!");
+            System.out.println("You're out of rolls! Better luck next time!");
         }
 
     }
